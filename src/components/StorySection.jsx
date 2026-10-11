@@ -1,0 +1,98 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+
+export default function StorySection() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], ['8%', '-8%']);
+  const textX = useTransform(scrollYProgress, [0, 0.4], ['-40px', '0px']);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+
+  return (
+    <section ref={ref} className="story-section">
+      {/* Ambient blobs */}
+      <div
+        className="ambient-blob"
+        style={{
+          width: '500px',
+          height: '500px',
+          top: '10%',
+          right: '-10%',
+          background:
+            'radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 70%)',
+          animation: 'blob-drift-2 22s ease-in-out infinite',
+        }}
+      />
+
+      <div className="container">
+        <div className="story-grid">
+          <motion.div className="story-text" style={{ x: textX, opacity: textOpacity }}>
+            <span
+              className="text-gold"
+              style={{
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                fontSize: '0.85rem',
+                fontWeight: 600,
+              }}
+            >
+              Our Heritage
+            </span>
+            <h2 className="heading-lg" style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>
+              From Farm to{' '}
+              <span className="text-gold" style={{ fontStyle: 'italic' }}>
+                Your Table
+              </span>
+            </h2>
+            <p className="text-lead" style={{ marginBottom: '1.5rem', maxWidth: '480px' }}>
+              For over 15 years, Shakambhari has been sourcing the finest dry
+              fruits directly from trusted farms across India and the world.
+            </p>
+            <p
+              style={{
+                color: 'var(--text-muted)',
+                lineHeight: 1.8,
+                maxWidth: '480px',
+              }}
+            >
+              Every almond, every cashew, every strand of saffron is handpicked
+              and quality-tested to ensure you receive nothing but the best. We
+              believe premium quality shouldn't come at a premium price — that's
+              why we bring you wholesale rates on every product.
+            </p>
+            <div className="story-features">
+              <div className="story-feature">
+                <div className="feature-dot" />
+                <span>Direct Farm Sourcing</span>
+              </div>
+              <div className="story-feature">
+                <div className="feature-dot" />
+                <span>Quality Tested</span>
+              </div>
+              <div className="story-feature">
+                <div className="feature-dot" />
+                <span>Wholesale Prices</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div className="story-image-wrapper" style={{ y: imageY }}>
+            <div className="story-image-frame">
+              <img
+                src="/assets/Shakambhari%20Dry%20Fruits%20and%20Foods%201.jpeg"
+                alt="Shakambhari Premium Dry Fruits"
+                className="story-image"
+                loading="lazy"
+              />
+            </div>
+            <div className="story-image-accent" />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
