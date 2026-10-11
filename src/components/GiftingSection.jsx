@@ -107,8 +107,11 @@ export default function GiftingSection() {
           ))}
         </div>
         
-        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-           <a href="tel:+918793398798" className="btn btn-primary">
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', marginTop: '3.5rem', flexWrap: 'wrap' }}>
+           <a href="#gift-builder" className="btn btn-primary" style={{ padding: '0.9rem 2rem' }}>
+              🎁 Build Custom Hamper
+           </a>
+           <a href="tel:+918793398798" className="btn btn-outline" style={{ padding: '0.9rem 2rem' }}>
               Enquire for Bulk Orders
            </a>
         </div>

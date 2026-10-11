@@ -41,7 +41,7 @@ export default function Navbar() {
           <a href="#home" className="nav-link">Home</a>
           <a href="#products" className="nav-link">Premium Range</a>
           <a href="#gifting" className="nav-link">Gifting</a>
-
+          <a href="#gift-builder" className="nav-link">Hamper Builder</a>
         </div>
         
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -73,6 +73,7 @@ export default function Navbar() {
           <a href="#home" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Home</a>
           <a href="#products" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Premium Range</a>
           <a href="#gifting" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Gifting</a>
+          <a href="#gift-builder" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Hamper Builder</a>
         </div>
       )}
     </nav>
