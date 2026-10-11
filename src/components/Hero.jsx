@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { ArrowRight, Leaf, Zap, ShieldCheck, Star } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, ShieldCheck, Star } from 'lucide-react';
 import { useRef, useEffect } from 'react';
 
 export default function Hero() {
@@ -50,25 +50,21 @@ export default function Hero() {
             {/* Left Column — Editorial Typography */}
             <div className="hero-text-col">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="hero-eyebrow-row"
               >
-                <div className="hero-live-badge">
-                  <span className="live-dot" />
-                  Same-Day Pune Delivery
-                </div>
                 <div className="hero-farm-badge">
-                  <Leaf size={13} />
-                  100% Farm Direct
+                  <Sparkles size={14} className="text-gold" />
+                  Wholesale & Retail Supplies • Pune
                 </div>
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="heading-xl hero-headline"
               >
                 Premium <br/>
@@ -83,9 +79,8 @@ export default function Hero() {
                 transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
                 className="text-lead hero-desc"
               >
-                Handpicked from Kashmir, Afghanistan & California. 
-                Wholesale rates on pure Grade A Saffron, organic seeds, 
-                and artisan gift hampers — delivered fresh across Pune.
+                Pune's premier wholesale and retail distributor for Grade-A dry fruits, 
+                pure saffron, healthy seeds, and bespoke gift hampers at direct wholesale prices.
               </motion.p>
 
               <motion.div
@@ -97,8 +92,8 @@ export default function Hero() {
                 <a href="#products" className="btn btn-primary hero-btn-primary">
                   Browse Collection <ArrowRight size={18} />
                 </a>
-                <a href="#gifting" className="btn hero-btn-secondary">
-                  Corporate Gifting
+                <a href="#gift-builder" className="btn hero-btn-secondary">
+                  Build Custom Hamper
                 </a>
               </motion.div>
 
@@ -139,10 +134,10 @@ export default function Hero() {
                   animate={{ opacity: 1, scale: 1, rotate: -2 }}
                   transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <img src="/assets/original/Saffron.jpeg" alt="Grade A Kashmiri Saffron" />
+                  <img src="/assets/original/Saffron.jpeg" alt="Grade A Saffron" />
                   <div className="hero-product-label">
                     <span className="hero-product-name">Grade A Saffron</span>
-                    <span className="hero-product-origin">Pampore, Kashmir</span>
+                    <span className="hero-product-origin">Pure Mongra Threads</span>
                   </div>
                 </motion.div>
 
@@ -154,10 +149,10 @@ export default function Hero() {
                   transition={{ duration: 1, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
                   style={{ x: useTransform(springX, v => v * -0.4), y: useTransform(springY, v => v * -0.6) }}
                 >
-                  <img src="/assets/original/Almonds.jpeg" alt="California Almonds" />
+                  <img src="/assets/original/Almonds.jpeg" alt="Premium Almonds" />
                   <div className="hero-product-label">
-                    <span className="hero-product-name">Almonds</span>
-                    <span className="hero-product-origin">California, USA</span>
+                    <span className="hero-product-name">Premium Almonds</span>
+                    <span className="hero-product-origin">Crisp & Nutritious</span>
                   </div>
                 </motion.div>
 
@@ -169,10 +164,10 @@ export default function Hero() {
                   transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   style={{ x: useTransform(springX, v => v * 0.3), y: useTransform(springY, v => v * 0.5) }}
                 >
-                  <img src="/assets/original/Cashews.jpeg" alt="Goa Cashews" />
+                  <img src="/assets/original/Cashews.jpeg" alt="Royal Cashews" />
                   <div className="hero-product-label">
-                    <span className="hero-product-name">Cashews</span>
-                    <span className="hero-product-origin">Goa, India</span>
+                    <span className="hero-product-name">Royal Cashews</span>
+                    <span className="hero-product-origin">Whole Grade W240</span>
                   </div>
                 </motion.div>
 

@@ -228,7 +228,7 @@ export default function CartSidebar() {
                   Confirm Order via WhatsApp
                 </button>
                 <p style={{ textAlign: 'center', fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.8rem' }}>
-                  Direct farm wholesale rates. No payment gateway charges.
+                  Genuine wholesale rates. No payment gateway charges.
                 </p>
               </div>
             )}

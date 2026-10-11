@@ -1,23 +1,23 @@
 import { motion } from 'framer-motion';
 
-const origins = [
-  'Kashmiri Mongra Saffron',
-  'California Nonpareil Almonds',
-  'Afghani Anjeer',
-  'Iranian Pistachios',
-  'Devgadh Alphonso',
-  'Goan Cashews',
-  'Himalayan Walnuts',
-  'Australian Macadamia',
-  'Turkish Apricots',
-  'Chilean Cranberries',
-  'Mexican Chia Seeds',
-  'Indian Poppy Seeds',
+const tickerItems = [
+  'Grade A Mongra Saffron',
+  'Premium Jumbo Almonds',
+  'Sweet Dried Figs',
+  'Roasted Salted Pistachios',
+  'King Whole Cashews',
+  'Raw Organic Walnuts',
+  'Wholesale & Retail Supplies',
+  'Custom Gift Hampers',
+  'Hygienically Packed',
+  'Premium Trail Mix',
+  'Omega-Rich Seeds',
+  'Exotic Dried Berries',
 ];
 
 export default function HarvestMarquee() {
   // Double the items for seamless loop
-  const items = [...origins, ...origins];
+  const items = [...tickerItems, ...tickerItems];
 
   return (
     <div className="marquee-section">

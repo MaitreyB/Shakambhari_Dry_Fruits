@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, Eye, Sparkles, SlidersHorizontal, Check } from 'lucide-react';
+import { Search, X, Sparkles, SlidersHorizontal, Check } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import QuickViewModal, { getVariants } from './QuickViewModal';
+import { getVariants } from '../utils/productVariants';
 
 const categories = ['All', 'Nuts', 'Seeds', 'Fruits & Berries', 'Assorted'];
 
@@ -69,7 +69,6 @@ export default function ProductSection() {
   const [activeHealthGoal, setActiveHealthGoal] = useState('All Goals');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedVariants, setSelectedVariants] = useState({});
-  const [quickViewProduct, setQuickViewProduct] = useState(null);
   const { addToCart } = useCart();
 
   const getActiveVariant = (product) => {
@@ -135,7 +134,7 @@ export default function ProductSection() {
             </h2>
           </motion.div>
           <p style={{ color: 'var(--text-muted)', maxWidth: '580px', margin: '0.8rem auto 0', fontSize: '1rem' }}>
-            Handpicked whole dry fruits, organic super seeds, and pure Kashmir saffron directly sourced at wholesale rates.
+            Handpicked whole dry fruits, organic super seeds, and pure Grade-A saffron curated at genuine wholesale rates.
           </p>
         </div>
 
@@ -238,25 +237,10 @@ export default function ProductSection() {
                     exit={{ opacity: 0, scale: 0.92 }}
                     transition={{ duration: 0.5, delay: Math.min(idx * 0.03, 0.4), ease: [0.16, 1, 0.3, 1] }}
                     className={`modern-product-card group ${FEATURED_PRODUCTS.includes(product.name) ? 'featured' : ''}`}
-                    onClick={() => setQuickViewProduct(product)}
-                    style={{ cursor: 'pointer' }}
                   >
                     <div className="card-image-container">
                       <img src={product.image} alt={product.name} className="product-img" loading="lazy" />
 
-                      {/* Quick-View floating trigger */}
-                      <button
-                        className="quick-view-badge-btn"
-                        title="Quick View"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setQuickViewProduct(product);
-                        }}
-                        aria-label={`Quick view ${product.name}`}
-                      >
-                        <Eye size={16} />
-                      </button>
-                      
                       {/* Hover Overlay with benefits */}
                       <div className="card-overlay">
                         <div className="overlay-content">
@@ -271,7 +255,6 @@ export default function ProductSection() {
                           <button 
                             onClick={(e) => { 
                               e.preventDefault(); 
-                              e.stopPropagation(); 
                               addToCart({
                                 name: product.name,
                                 variant: activeVariant ? activeVariant.label : undefined,
@@ -290,7 +273,7 @@ export default function ProductSection() {
                       </div>
                     </div>
 
-                    <div className="card-info" onClick={(e) => e.stopPropagation()}>
+                    <div className="card-info">
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                         <h3 className="product-title" style={{ fontSize: '1.15rem' }}>{product.name}</h3>
                         <span className="product-price" style={{ fontSize: '1.1rem', fontWeight: 600 }}>{displayPrice}</span>
@@ -307,8 +290,7 @@ export default function ProductSection() {
                               <button
                                 key={v.label}
                                 className={`card-variant-btn ${isSelected ? 'active' : ''}`}
-                                onClick={(e) => {
-                                  e.stopPropagation();
+                                onClick={() => {
                                   setSelectedVariants(prev => ({ ...prev, [product.name]: v }));
                                 }}
                               >
@@ -319,13 +301,13 @@ export default function ProductSection() {
                         </div>
                       )}
 
-                      {/* CTA Actions */}
+                      {/* CTA Action */}
                       <div className="card-cta-row">
                         <button
                           className="btn btn-primary card-quick-add-btn"
+                          style={{ width: '100%' }}
                           onClick={(e) => {
                             e.preventDefault();
-                            e.stopPropagation();
                             addToCart({
                               name: product.name,
                               variant: activeVariant ? activeVariant.label : undefined,
@@ -336,18 +318,7 @@ export default function ProductSection() {
                             });
                           }}
                         >
-                          Add {activeVariant ? `(${activeVariant.label})` : ''}
-                        </button>
-                        <button
-                          className="card-inspect-btn"
-                          title="View nutrition & origin"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setQuickViewProduct(product);
-                          }}
-                          aria-label={`Inspect ${product.name}`}
-                        >
-                          <Eye size={16} />
+                          Add to Cart {activeVariant ? `(${activeVariant.label})` : ''}
                         </button>
                       </div>
                     </div>
@@ -358,13 +329,6 @@ export default function ProductSection() {
           </motion.div>
         )}
       </div>
-
-      {/* Quick-View Modal */}
-      <QuickViewModal
-        product={quickViewProduct}
-        isOpen={Boolean(quickViewProduct)}
-        onClose={() => setQuickViewProduct(null)}
-      />
     </section>
   );
 }

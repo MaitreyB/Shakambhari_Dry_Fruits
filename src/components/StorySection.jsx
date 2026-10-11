@@ -43,14 +43,13 @@ export default function StorySection() {
               Our Heritage
             </span>
             <h2 className="heading-lg" style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>
-              From Farm to{' '}
+              Wholesale Purity for{' '}
               <span className="text-gold" style={{ fontStyle: 'italic' }}>
-                Your Table
+                Your Home
               </span>
             </h2>
             <p className="text-lead" style={{ marginBottom: '1.5rem', maxWidth: '480px' }}>
-              For over 15 years, Shakambhari has been sourcing the finest dry
-              fruits directly from trusted farms across India and the world.
+              For over 15 years, Shakambhari has been Pune's trusted wholesale and retail distributor for premium dry fruits, authentic saffron, and wholesome nuts.
             </p>
             <p
               style={{
@@ -59,23 +58,20 @@ export default function StorySection() {
                 maxWidth: '480px',
               }}
             >
-              Every almond, every cashew, every strand of saffron is handpicked
-              and quality-tested to ensure you receive nothing but the best. We
-              believe premium quality shouldn't come at a premium price — that's
-              why we bring you wholesale rates on every product.
+              Every batch of almonds, cashews, and saffron undergoes rigorous quality inspection and hygienic grading. We believe supreme quality shouldn't come at inflated retail markups — that's why we offer direct wholesale rates on every product.
             </p>
             <div className="story-features">
               <div className="story-feature">
                 <div className="feature-dot" />
-                <span>Direct Farm Sourcing</span>
+                <span>Rigorous Quality Grading</span>
               </div>
               <div className="story-feature">
                 <div className="feature-dot" />
-                <span>Quality Tested</span>
+                <span>Hygienic Packaging</span>
               </div>
               <div className="story-feature">
                 <div className="feature-dot" />
-                <span>Wholesale Prices</span>
+                <span>Wholesale Rates</span>
               </div>
             </div>
           </motion.div>
